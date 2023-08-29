@@ -58,8 +58,8 @@ const navbarItems = {
 export function Navbar() {
   return (
     <>
-      <div className="flex ml-5">
-        <div className="flex">
+      <div className="flex border-b border-zinc-100">
+        <div className="flex ml-5">
           <a href="/" className="py-18px pr-6 pl-0">
             <img src="/Elisa_logo_blue_RGB.png" alt="Elisa" width={72} />
           </a>
@@ -83,7 +83,7 @@ export function Navbar() {
                 <button title={item.title}>
                   {item.icon}
                   {item.showTitle && (
-                    <span className="hidden text-primary ml-1.5 lg:block">
+                    <span className="hidden text-primary ml-1.5 lg:inline">
                       {item.title}
                     </span>
                   )}

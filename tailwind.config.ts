@@ -13,11 +13,11 @@ const config: Config = {
         "18px": "18px",
         "26px": "26px",
       },
-    },
-    colors: {
-      primary: "#00239d",
-      dark: "#171c43",
-      lightBackground: "#fafafa",
+      colors: {
+        primary: "#00239d",
+        dark: "#171c43",
+        lightBackground: "#fafafa",
+      },
     },
     screens: {
       lg: "1047px",
