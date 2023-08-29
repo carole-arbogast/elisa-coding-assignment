@@ -1,3 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
+import ElisaLogo from "../public/elisa.png";
+import Navbar from "./Navbar";
 interface Article {
   id: string;
   creationDate: Date;
@@ -16,48 +20,6 @@ const request = async <T,>(url: string): Promise<T> => {
 };
 
 // TODO make space for icons + button instead of link
-const navbarItems = {
-  rightSide: [
-    {
-      title: "ELISA",
-      url: "/",
-    },
-    {
-      title: "Tuotteet ja palvelut",
-      url: "/",
-    },
-    {
-      title: "5G",
-      url: "/",
-    },
-    {
-      title: "Ideat",
-      url: "/",
-    },
-    {
-      title: "Asiakaspalvelu ja tuki",
-      url: "/",
-    },
-    {
-      title: "OmaElisa 24/7",
-      url: "/",
-    },
-  ],
-  leftSide: [
-    {
-      title: "SEARCH",
-      url: "/",
-    },
-    {
-      title: "CART",
-      url: "/",
-    },
-    {
-      title: "KIRJAUDU",
-      url: "/",
-    },
-  ],
-};
 
 const getData = async () => {
   const res = await request<Article[]>(
@@ -72,22 +34,8 @@ export default async function Home() {
 
   return (
     <>
-      <nav className="flex">
-        <ol className="flex px-5">
-          {navbarItems.rightSide.map((item) => (
-            <li key={item.title} className="px-2">
-              {item.title}
-            </li>
-          ))}
-        </ol>
-        <ol className="flex ml-auto px-5">
-          {navbarItems.leftSide.map((item) => (
-            <li key={item.title} className="px-2">
-              {item.title}
-            </li>
-          ))}
-        </ol>
-      </nav>
+      <Navbar />
+
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <h1>ELISA NEWS</h1>
         {data.map((article) => (
