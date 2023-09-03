@@ -27,7 +27,7 @@ const getRecentArticles = async () => {
   return res;
 };
 
-export async function NewsArticle({ params }: { params: { id: string } }) {
+async function NewsArticle({ params }: { params: { id: string } }) {
   const article = await getArticle(params.id);
   const recentArticles = await getRecentArticles();
 
