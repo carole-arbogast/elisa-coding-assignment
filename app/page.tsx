@@ -1,17 +1,13 @@
-/* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
-import ElisaLogo from "../public/elisa.png";
-import Navbar from "./Navbar";
-interface Article {
+import { Card } from "./Card";
+import Link from "next/link";
+export interface ArticleInfo {
   id: string;
   creationDate: Date;
   publishDate: Date;
   title: string;
-  // FIXME better type
-  siteSpecificTags: object;
 }
 
-const request = async <T,>(url: string): Promise<T> => {
+export const request = async <T,>(url: string): Promise<T> => {
   const res = await fetch(url);
   if (!res.ok) {
     return Promise.reject("error");
@@ -19,30 +15,27 @@ const request = async <T,>(url: string): Promise<T> => {
   return res.json() as T;
 };
 
-// TODO make space for icons + button instead of link
-
 const getData = async () => {
-  const res = await request<Article[]>(
+  const res = await request<ArticleInfo[]>(
     "https://esco.elisa.fi/rest/esco/bulletin/list?tags=corporate.elisa.fi:national-press&maxResults=10"
   );
   return res;
 };
 
 export default async function Home() {
-  // TODO Write types
   const data = await getData();
 
   return (
     <>
-      <Navbar />
-
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <h1>ELISA NEWS</h1>
-        {data.map((article) => (
-          <article key={article.id}>
-            <h2>{article.title}</h2>
-          </article>
-        ))}
+      <main className="">
+        <h1 className="text-center">Uusimmat lehdistötiedotteet</h1>
+        <div className="grid grid-cols-fluid gap-x-6 mx-2">
+          {data.map((article) => (
+            <Card key={article.id}>
+              <Link href={`news/${article.id}`}>{article.title}</Link>
+            </Card>
+          ))}
+        </div>
       </main>
     </>
   );
