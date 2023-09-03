@@ -1,8 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
   faCartShopping,
   faUser,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
 const navbarItems = {
@@ -90,6 +92,15 @@ export function Navbar() {
                 </button>
               </li>
             ))}
+            <li>
+              <button aria-label="Open menu" className="lg:hidden">
+                <FontAwesomeIcon
+                  icon={faBars}
+                  className="text-primary "
+                  aria-hidden="true"
+                ></FontAwesomeIcon>
+              </button>
+            </li>
           </ol>
         </nav>
       </div>
