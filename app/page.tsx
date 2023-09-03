@@ -1,3 +1,4 @@
+import ArticleCardContent from "./ArticleCardContent";
 import { Card } from "./Card";
 import Link from "next/link";
 export interface ArticleInfo {
@@ -31,9 +32,7 @@ export default async function Home() {
         <h1 className="text-center">Uusimmat lehdistötiedotteet</h1>
         <div className="grid grid-cols-fluid gap-x-6 mx-2">
           {data.map((article) => (
-            <Card key={article.id}>
-              <Link href={`news/${article.id}`}>{article.title}</Link>
-            </Card>
+            <ArticleCardContent key={article.id} article={article} />
           ))}
         </div>
       </main>
