@@ -7,6 +7,7 @@ import {
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
+//FIXME move this to config file
 const navbarItems = {
   rightSide: [
     {
@@ -71,9 +72,9 @@ export function Navbar() {
             {navbarItems.rightSide.map((item) => (
               <li
                 key={item.title}
-                className="font-semibold text-lg text-primary px-3 py-26px hover:bg-lightBackground"
+                className="font-semibold text-lg text-primary py-26px hover:bg-light-background"
               >
-                <a href="/" className="">
+                <a href="/" className=" px-3 py-26px">
                   {item.title}
                 </a>
               </li>

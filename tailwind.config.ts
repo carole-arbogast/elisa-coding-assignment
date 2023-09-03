@@ -16,7 +16,9 @@ const config: Config = {
       colors: {
         primary: "#00239d",
         dark: "#171c43",
-        lightBackground: "#fafafa",
+        "light-background": "#fafafa",
+        link: "#0068f0",
+        "link-hover": "#0048a1",
       },
       maxWidth: {
         "405px": "405px",
