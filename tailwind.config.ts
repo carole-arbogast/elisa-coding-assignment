@@ -22,6 +22,7 @@ const config: Config = {
       },
       maxWidth: {
         "405px": "405px",
+        "904px": "904px",
       },
       boxShadow: {
         section: "5px 5px 10px #d2d2d6",
