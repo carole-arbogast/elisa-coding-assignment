@@ -2,6 +2,7 @@ import { StyledLink } from "@/app/StyledLink";
 import { ArticleInfo, request } from "@/app/page";
 import { format } from "date-fns";
 import Link from "next/link";
+import RecentArticle from "./RecentArticle";
 
 interface Article {
   id: string;
@@ -41,17 +42,14 @@ export async function NewsArticle({ params }: { params: { id: string } }) {
   return (
     <>
       <div className="m-auto px-10 py-6 lg:max-w-904px lg:pt-12 lg:flex">
-        <div>
+        <div className="pr-10 lg:max-w-1/3">
           {formattedDate}
           <h1>{article.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
         </div>
-        <div className="hidden lg:flex flex-col">
-          Recent articles
+        <div className="hidden lg:flex lg:flex-col ">
           {recentArticlesToDisplay.map((article) => (
-            <StyledLink href={`news/${article.id}`} key={article.id}>
-              {article.title}
-            </StyledLink>
+            <RecentArticle key={article.id} article={article} />
           ))}
         </div>
       </div>
