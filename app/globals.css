@@ -8,8 +8,7 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  color: #404041;
 }
 
 p {

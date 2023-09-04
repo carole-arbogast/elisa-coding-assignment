@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
@@ -6,6 +7,7 @@ import {
   faUser,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 //FIXME move this to config file
 const navbarItems = {
@@ -58,7 +60,24 @@ const navbarItems = {
   ],
 };
 
+const upperNavbarItems = [
+  {
+    title: "Yksityisille",
+    url: "#",
+  },
+  {
+    title: "Yrityksille",
+    url: "#",
+  },
+  {
+    title: "Elisa Oyj",
+    url: "#",
+  },
+];
+
 export function Navbar() {
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+
   return (
     <>
       <div className="flex border-b border-zinc-100">
@@ -68,7 +87,7 @@ export function Navbar() {
           </a>
         </div>
         <nav className="flex flex-1 items-center">
-          <ol className="hidden lg:flex">
+          <ul className="hidden lg:flex">
             {navbarItems.rightSide.map((item) => (
               <li
                 key={item.title}
@@ -79,8 +98,8 @@ export function Navbar() {
                 </a>
               </li>
             ))}
-          </ol>
-          <ol className="flex content-end ml-auto px-6">
+          </ul>
+          <ul className="flex content-end ml-auto px-6">
             {navbarItems.leftSide.map((item, i) => (
               <li key={i} className="px-3">
                 <button title={item.title}>
@@ -94,7 +113,11 @@ export function Navbar() {
               </li>
             ))}
             <li>
-              <button aria-label="Open menu" className="lg:hidden">
+              <button
+                aria-label="Open menu"
+                className="lg:hidden"
+                onClick={() => setHamburgerOpen(!hamburgerOpen)}
+              >
                 <FontAwesomeIcon
                   icon={faBars}
                   className="text-primary "
@@ -102,9 +125,39 @@ export function Navbar() {
                 ></FontAwesomeIcon>
               </button>
             </li>
-          </ol>
+          </ul>
         </nav>
       </div>
+      {hamburgerOpen && (
+        <nav className="max-w-sm border-x border-b border-zinc-100 ml-auto z-10 absolute right-0 bg-white">
+          <ul className="flex flex-wrap">
+            {upperNavbarItems.map((item) => (
+              <li key={item.title} className="text-primary px-5 pr-5 py-2.5">
+                <a href={item.url}>{item.title}</a>
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {navbarItems.rightSide.map((item) => (
+              <li
+                key={item.title}
+                className="px-5 h-16 text-primary font-semibold flex items-center border-b border-zinc-100"
+              >
+                <a href="#" className="flex justify-between w-full">
+                  {item.title}
+                  <span>{">"}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+      {hamburgerOpen && (
+        <div
+          className="absolute h-screen w-screen bg-slate-50 opacity-5"
+          onClick={() => setHamburgerOpen(false)}
+        ></div>
+      )}
     </>
   );
 }
