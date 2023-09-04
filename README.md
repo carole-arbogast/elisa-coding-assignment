@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a coding assignment for Elisa. The deployed version can be found [here](https://elisa-coding-assignment.vercel.app/).
 
 ## Getting Started
 
-First, run the development server:
+#### Install the dependencies
 
 ```bash
+yarn
+# or
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Start the application
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+# or
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The application will open on [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+#### Start Storybook
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+yarn storybook
+# or
+npm run storybook
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This will open Storybook automatically on [http://localhost:6006](http://localhost:6006)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### Tools used in this project
 
-## Deploy on Vercel
+- [NextJS](https://nextjs.org/)
+- [Tailwind](https://tailwindcss.com/) for styling
+- [Storybook](https://storybook.js.org/) for testing the UI
+- [FontAwesome](https://fontawesome.com/) for the icons
+- [date-fns](https://date-fns.org/) for formatting dates easily
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## File Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project follows the NextJS 13 [recommended structure](https://nextjs.org/docs/getting-started/project-structure).
+Inside the `app` directory, you will find the following:
+
+`_components` Components that aren't specific to any page, and can be re-used anywhere in the application.
+
+`_config` For static configuration such as the navbar content.
+
+`_types` Shared type declarations.
+
+`_utils` Useful reusable functions such as fetch or date formatting.
+
+`(routes)` The application's pages.
+
+## Thoughts about improvements
+
+This project was done within a limited time frame, so here are a few things that could be improved:
+
+- Testing. Most components are documented in Storybook, but more interaction testing is needed to make sure that the application is working as it should.
+
+- Accessibility. There should also be accesibility tests such as checking keyboard navigation. This can be done with Storybook interactions as well. More work also needs to be done to make this accessible for screen readers, for example by adding more aria-labels.
+
+- Error handling. At the moment if the API returns an error, the application will only show NextJS's default error page. It would be better to have custom 500 and 404 error pages, and to catch potential errors properly. This could be done more easily by using SWR.
