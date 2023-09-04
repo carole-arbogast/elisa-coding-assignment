@@ -14,7 +14,7 @@ export function RecentArticle(props: Props) {
   return (
     <div className="px-5 py-2.5">
       <div className="pb-1.5">{formattedDate}</div>
-      <StyledLink href={`news/${article.id}`} key={article.id}>
+      <StyledLink href={`/news/${article.id}`} key={article.id}>
         {article.title}
       </StyledLink>
     </div>
