@@ -2,20 +2,21 @@ This is a coding assignment for Elisa. The deployed version can be found [here](
 
 ## Getting Started
 
+#### Requirements
+
+- Yarn 1
+- NodeJS 16.14 or later
+
 #### Install the dependencies
 
 ```bash
 yarn
-# or
-npm run dev
 ```
 
 #### Start the application
 
 ```bash
 yarn dev
-# or
-npm run dev
 ```
 
 The application will open on [http://localhost:3000](http://localhost:3000).
@@ -24,8 +25,6 @@ The application will open on [http://localhost:3000](http://localhost:3000).
 
 ```bash
 yarn storybook
-# or
-npm run storybook
 ```
 
 This will open Storybook automatically on [http://localhost:6006](http://localhost:6006)
@@ -57,8 +56,8 @@ Inside the `app` directory, you will find the following:
 
 This project was done within a limited time frame, so here are a few things that could be improved:
 
-- Testing. Most components are documented in Storybook, but more interaction testing is needed to make sure that the application is working as it should.
+- Testing. Most components are documented in Storybook, but more interaction testing is needed to make sure that the application is working as it should. One example of interaction test can be found [here](stories/Navbar.stories.tsx)
 
 - Accessibility. There should also be accesibility tests such as checking keyboard navigation. This can be done with Storybook interactions as well. More work also needs to be done to make this accessible for screen readers, for example by adding more aria-labels.
 
-- Error handling. At the moment if the API returns an error, the application will only show NextJS's default error page. It would be better to have custom 500 and 404 error pages, and to catch potential errors properly. This could be done more easily by using SWR.
+- Error handling. At the moment if the API returns an error, the application will only show NextJS's default error page. It would be better to have custom 500 and 404 error pages, and to catch potential errors properly. This could be done more easily by using [SWR](https://swr.vercel.app/).
