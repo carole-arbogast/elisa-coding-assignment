@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 import RecentArticle from "./RecentArticle";
-import { getArticle, getRecentArticles } from "@/app/_utils/utils";
+import { formatDate, getArticle, getRecentArticles } from "@/app/_utils/utils";
 
 async function NewsArticle({ params }: { params: { id: string } }) {
   const article = await getArticle(params.id);
@@ -11,8 +11,7 @@ async function NewsArticle({ params }: { params: { id: string } }) {
     .filter((article) => article.id !== params.id)
     .slice(6);
 
-  const publishDate = new Date(article.publishDate);
-  const formattedDate = `${format(publishDate, "dd.MM.yyyy H.mm")}`;
+  const formattedDate = formatDate(article.publishDate);
 
   return (
     <>

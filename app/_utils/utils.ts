@@ -1,3 +1,4 @@
+import format from "date-fns/format";
 import { Article, ArticleInfo } from "../_types";
 
 // Custom fetch to make typing response easier
@@ -21,4 +22,9 @@ export const getRecentArticles = async () => {
     "https://esco.elisa.fi/rest/esco/bulletin/list?tags=corporate.elisa.fi:national-press&maxResults=10"
   );
   return res;
+};
+
+export const formatDate = (date: string, style = "dd.MM.yyyy H.mm") => {
+  const formattedDate = `${format(new Date(date), style)}`;
+  return formattedDate;
 };
