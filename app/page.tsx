@@ -8,7 +8,7 @@ export default async function Home() {
     <>
       <main className="">
         <h1 className="text-center">Uusimmat lehdistötiedotteet</h1>
-        <div className="grid grid-cols-fluid gap-x-6 max-w-7xl m-auto">
+        <div className="grid grid-cols-fluid gap-6 max-w-7xl m-auto">
           {data.map((article) => (
             <ArticleCardContent key={article.id} article={article} />
           ))}
