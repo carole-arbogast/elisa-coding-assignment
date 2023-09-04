@@ -1,14 +1,8 @@
-import { ArticleInfo, request } from "@/app/page";
+// FIXME Extract to utils
+import { request } from "@/app/page";
 import { format } from "date-fns";
 import RecentArticle from "./RecentArticle";
-
-interface Article {
-  id: string;
-  creationDate: Date;
-  publishDate: string;
-  title: string;
-  content: string;
-}
+import { Article, ArticleInfo } from "@/app/_types";
 
 // FIXME move to some utils folder
 const getArticle = async (id: string) => {

@@ -1,5 +1,3 @@
-import { ArticleInfo } from "../page";
-
 interface Props {
   children: React.ReactNode;
 }

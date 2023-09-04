@@ -1,5 +1,5 @@
 import StyledLink from "@/app/_components/StyledLink";
-import { ArticleInfo } from "@/app/page";
+import { ArticleInfo } from "@/app/_types";
 import { format } from "date-fns";
 
 interface Props {

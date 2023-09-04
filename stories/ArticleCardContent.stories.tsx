@@ -14,8 +14,8 @@ type Story = StoryObj<typeof ArticleCardContent>;
 const newsArticle = {
   id: "123",
   title: "Turun seudulle uusinta 5G-teknologiaa – 3G-verkko poistuu käytöstä",
-  creationDate: new Date("2023-08-23"),
-  publishDate: new Date("2023-08-23"),
+  creationDate: "2023-08-23",
+  publishDate: "2023-08-23",
 };
 
 export const Primary: Story = {

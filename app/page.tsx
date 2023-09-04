@@ -1,12 +1,5 @@
 import ArticleCardContent from "./ArticleCardContent";
-import { Card } from "./_components/Card";
-import Link from "next/link";
-export interface ArticleInfo {
-  id: string;
-  creationDate: Date;
-  publishDate: Date;
-  title: string;
-}
+import { ArticleInfo } from "./_types";
 
 export const request = async <T,>(url: string): Promise<T> => {
   const res = await fetch(url);
