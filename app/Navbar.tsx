@@ -1,79 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faCartShopping,
-  faUser,
-  faBars,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-
-//FIXME move this to config file
-const navbarItems = {
-  rightSide: [
-    {
-      title: "Tuotteet ja palvelut",
-      url: "/",
-    },
-    {
-      title: "5G",
-      url: "/",
-    },
-    {
-      title: "Ideat",
-      url: "/",
-    },
-    {
-      title: "Asiakaspalvelu ja tuki",
-      url: "/",
-    },
-    {
-      title: "OmaElisa 24/7",
-      url: "/",
-    },
-  ],
-  leftSide: [
-    {
-      title: "Haku",
-      icon: (
-        <FontAwesomeIcon icon={faSearch} className="text-primary w-6 px-0" />
-      ),
-      url: "/",
-    },
-    {
-      title: "Ostokori",
-      icon: (
-        <FontAwesomeIcon
-          icon={faCartShopping}
-          className="text-primary w-6 px-0"
-        />
-      ),
-      url: "/",
-    },
-    {
-      title: "Kirjaudu",
-      showTitle: true,
-      icon: <FontAwesomeIcon icon={faUser} className="text-primary w-6 px-0" />,
-      url: "/",
-    },
-  ],
-};
-
-const upperNavbarItems = [
-  {
-    title: "Yksityisille",
-    url: "#",
-  },
-  {
-    title: "Yrityksille",
-    url: "#",
-  },
-  {
-    title: "Elisa Oyj",
-    url: "#",
-  },
-];
+import { navbarItems, upperNavbarItems } from "./_config/navbar";
 
 export function Navbar() {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
@@ -103,7 +33,12 @@ export function Navbar() {
             {navbarItems.leftSide.map((item, i) => (
               <li key={i} className="px-3">
                 <button title={item.title}>
-                  {item.icon}
+                  {item.icon && (
+                    <FontAwesomeIcon
+                      icon={item.icon}
+                      className="text-primary w-6 px-0"
+                    />
+                  )}
                   {item.showTitle && (
                     <span className="hidden text-primary ml-1.5 lg:inline">
                       {item.title}
