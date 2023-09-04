@@ -10,13 +10,18 @@ export function Navbar() {
 
   return (
     <>
+      {/* Desktop/laptop navbar */}
       <div className="flex border-b border-zinc-100">
         <div className="flex ml-5">
           <a href="/" className="py-18px pr-6 pl-0">
             <img src="/Elisa_logo_blue_RGB.png" alt="Elisa" width={72} />
           </a>
         </div>
-        <nav className="flex flex-1 items-center">
+        <nav
+          className="flex flex-1 items-center"
+          role="navigation"
+          aria-label="Menu"
+        >
           <ul className="hidden lg:flex">
             {navbarItems.rightSide.map((item) => (
               <li
@@ -63,8 +68,18 @@ export function Navbar() {
           </ul>
         </nav>
       </div>
+      {/* Mobile/tablet navbar */}
       {hamburgerOpen && (
-        <nav className="w-96 h-screen border-x border-b border-zinc-100 ml-auto z-10 absolute right-0 bg-white">
+        <nav
+          className="w-96 h-screen border-x border-b border-zinc-100 ml-auto z-10 absolute right-0 bg-white"
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              setHamburgerOpen(false);
+            }
+          }}
+          role="navigation"
+          aria-label="Mobile Menu"
+        >
           <ul className="flex flex-wrap">
             {upperNavbarItems.map((item) => (
               <li key={item.title} className="text-primary px-5 pr-5 py-2.5">
