@@ -71,7 +71,7 @@ export function Navbar() {
       {/* Mobile/tablet navbar */}
       {hamburgerOpen && (
         <nav
-          className="w-96 h-screen border-x border-b border-zinc-100 ml-auto z-10 absolute right-0 bg-white"
+          className="max-w-96 h-screen border-x border-b border-zinc-100 ml-auto z-10 absolute right-0 bg-white"
           onKeyDown={(event) => {
             if (event.key === "Escape") {
               setHamburgerOpen(false);
