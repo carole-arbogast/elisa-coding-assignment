@@ -19,7 +19,9 @@ async function NewsArticle({ params }: { params: { id: string } }) {
         <div className="pr-10 lg:max-w-1/3">
           {formattedDate}
           <h1>{article.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
+          <article
+            dangerouslySetInnerHTML={{ __html: article.content }}
+          ></article>
         </div>
         <div className="hidden lg:flex lg:flex-col ">
           {recentArticlesToDisplay.map((article) => (
