@@ -1,4 +1,4 @@
-import { ArticleInfo } from "./page";
+import { ArticleInfo } from "../page";
 
 interface Props {
   children: React.ReactNode;

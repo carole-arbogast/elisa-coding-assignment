@@ -1,7 +1,5 @@
-import { StyledLink } from "@/app/StyledLink";
 import { ArticleInfo, request } from "@/app/page";
 import { format } from "date-fns";
-import Link from "next/link";
 import RecentArticle from "./RecentArticle";
 
 interface Article {

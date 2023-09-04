@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Card from "./Card";
+import Card from "./_components/Card";
 import { ArticleInfo } from "./page";
 import format from "date-fns/format";
-import { StyledLink } from "./StyledLink";
+import { StyledLink } from "./_components/StyledLink";
 
 interface Props {
   article: ArticleInfo;

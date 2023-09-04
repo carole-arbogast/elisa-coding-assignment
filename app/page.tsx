@@ -1,5 +1,5 @@
 import ArticleCardContent from "./ArticleCardContent";
-import { Card } from "./Card";
+import { Card } from "./_components/Card";
 import Link from "next/link";
 export interface ArticleInfo {
   id: string;

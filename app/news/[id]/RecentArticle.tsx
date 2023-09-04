@@ -1,4 +1,4 @@
-import StyledLink from "@/app/StyledLink";
+import StyledLink from "@/app/_components/StyledLink";
 import { ArticleInfo } from "@/app/page";
 import { format } from "date-fns";
 
