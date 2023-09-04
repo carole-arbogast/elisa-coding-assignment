@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { RecentArticle } from "../app/news/[id]/RecentArticle";
+import { RecentArticle } from "../app/(routes)/news/[id]/RecentArticle";
 
 const meta: Meta<typeof RecentArticle> = {
   title: "Components/News/RecentArticle",
