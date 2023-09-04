@@ -11,7 +11,7 @@ export function Navbar() {
   return (
     <>
       {/* Desktop/laptop navbar */}
-      <div className="flex border-b border-zinc-100">
+      <div className="flex border-b border-zinc-100 bg-white">
         <div className="flex ml-5">
           <a href="/" className="py-18px pr-6 pl-0">
             <img src="/Elisa_logo_blue_RGB.png" alt="Elisa" width={72} />
