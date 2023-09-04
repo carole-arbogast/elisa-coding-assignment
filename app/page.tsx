@@ -1,23 +1,8 @@
 import ArticleCardContent from "./ArticleCardContent";
-import { ArticleInfo } from "./_types";
-
-export const request = async <T,>(url: string): Promise<T> => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    return Promise.reject("error");
-  }
-  return res.json() as T;
-};
-
-const getData = async () => {
-  const res = await request<ArticleInfo[]>(
-    "https://esco.elisa.fi/rest/esco/bulletin/list?tags=corporate.elisa.fi:national-press&maxResults=10"
-  );
-  return res;
-};
+import { getRecentArticles } from "./_utils/utils";
 
 export default async function Home() {
-  const data = await getData();
+  const data = await getRecentArticles();
 
   return (
     <>

@@ -1,23 +1,6 @@
-// FIXME Extract to utils
-import { request } from "@/app/page";
 import { format } from "date-fns";
 import RecentArticle from "./RecentArticle";
-import { Article, ArticleInfo } from "@/app/_types";
-
-// FIXME move to some utils folder
-const getArticle = async (id: string) => {
-  const res = await request<Article>(
-    `https://esco.elisa.fi/rest/esco/bulletin/id/${id}`
-  );
-  return res;
-};
-
-const getRecentArticles = async () => {
-  const res = await request<ArticleInfo[]>(
-    "https://esco.elisa.fi/rest/esco/bulletin/list?tags=corporate.elisa.fi:national-press&maxResults=10"
-  );
-  return res;
-};
+import { getArticle, getRecentArticles } from "@/app/_utils/utils";
 
 async function NewsArticle({ params }: { params: { id: string } }) {
   const article = await getArticle(params.id);
