@@ -129,7 +129,7 @@ export function Navbar() {
         </nav>
       </div>
       {hamburgerOpen && (
-        <nav className="max-w-sm border-x border-b border-zinc-100 ml-auto z-10 absolute right-0 bg-white">
+        <nav className="w-96 h-screen border-x border-b border-zinc-100 ml-auto z-10 absolute right-0 bg-white">
           <ul className="flex flex-wrap">
             {upperNavbarItems.map((item) => (
               <li key={item.title} className="text-primary px-5 pr-5 py-2.5">
